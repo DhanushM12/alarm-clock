@@ -1,3 +1,17 @@
+body {
+  background: #2e2e2e;
+}
 .App {
   text-align: center;
+  font-size: large;
+  color: aliceblue;
+}
+.clock {
+  float: center;
+  color: aliceblue;
+  margin-left: 520px;
+}
+.primary_inverted {
+  background-color: #3b9797;
+  padding: 10px;
 }

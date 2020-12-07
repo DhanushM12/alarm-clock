@@ -1,6 +1,9 @@
-
-import { useState } from 'react';
-import './App.css';
+import React, { useState, Fragment } from 'react';
+import 'fdweb/normalize.css';
+import 'fdweb/fluent.css';
+import 'fdweb/fluent-icons.css';
+import '../App.css';
+import Alarm from './Alarm';
 
 function App() {
   let time = new Date().toLocaleTimeString();
@@ -13,7 +16,8 @@ function App() {
   return (
     <div className="App">
       Digital Alarm Clock
-  <h1>{currentTime}</h1>
+  <h1 className="clock">{currentTime}</h1>
+  <Alarm />
     </div>
   );
 }
