@@ -1,3 +1,33 @@
+## Project Folder Structure
+
+```
+alarm-clock
+├─ .eslintcache
+├─ .git
+├─ .gitignore
+├─ .prettierrc
+├─ package-lock.json
+├─ package.json
+├─ public
+│  ├─ favicon.ico
+│  ├─ index.html
+│  ├─ logo192.png
+│  ├─ logo512.png
+│  ├─ manifest.json
+│  └─ robots.txt
+├─ README.md
+└─ src
+   ├─ App.css
+   ├─ audio-alarm.mp3
+   ├─ components
+   │  ├─ Alarm.js
+   │  └─ App.js
+   └─ index.js
+
+```
+
+## React JS
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
