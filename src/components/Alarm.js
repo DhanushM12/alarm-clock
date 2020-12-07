@@ -1,9 +1,44 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react';
+import audio1 from '../audio-alarm.mp3';
 
 function Alarm() {
+    const [AlarmHours, setHour] = useState();
+    const [AlarmMin, setMins] = useState(); 
+    const setAlarm = () => {
+        var currentH = document.querySelector('.hours').value;
+        setHour(currentH);
+        var currentM = document.querySelector('.mins').value;
+        setMins(currentM);
+        console.log('alarm is now set');
+        //console.log(currentH);
+        //console.log(currentM);
+        checkAlarm();
+    }
+    const stopAlarm = () => {
+        document.querySelector('.audio1').pause();
+        document.querySelector('.audio1').currentTime=60;
+    }
+    const checkAlarm = () => {
+        setInterval(function(){
+            var time = new Date();
+            var curr_h = time.getHours();
+            var curr_m = time.getMinutes();
+            console.log(curr_h+ ":"+curr_m);
+            console.log(AlarmHours+ ":" + AlarmMin);
+            if(AlarmHours == curr_h && AlarmMin==curr_m){
+            console.log('Its time up now get up');
+            document.querySelector('.audio1').play();
+            }
+        }, 10000);
+        
+    }
+    useEffect(()=>{
+        checkAlarm();
+    });
+
     return (
         <Fragment>
-            <div className='column large6 medium9 small12 primary_inverted center'>
+            <div className='column large6 medium9 small12 primary_inverted center wrapper'>
                 <h2>Set Alarm</h2>
                 <div className='alarm_time'>
                     <select className='hours'>
@@ -32,7 +67,7 @@ function Alarm() {
                         <option>22</option>
                         <option>23</option>
                     </select>
-                    <select className='min'>
+                    <select className='mins'>
                         <option>00</option>
                         <option>01</option>
                         <option>02</option>
@@ -95,7 +130,13 @@ function Alarm() {
                         <option>59</option>
                     </select>
                     <br/>
-                    <button className='small'>Set Alarm</button>
+                    <button className='small' onClick={setAlarm}>Set Alarm</button>
+                    <button className='small' onClick={stopAlarm}>Stop Alarm</button>
+                </div>
+                <div className='playback'>
+                    <audio className='audio1'>
+                        <source src={audio1} type='audio/mp3'/>
+                    </audio>
                 </div>
             </div>
         </Fragment>
